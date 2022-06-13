@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: OrderCreationTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 1, Skipped: 0, Time elapsed: 7.158 s <<< FAILURE! - in OrderCreationTest
+makeOrderWithoutAuth(OrderCreationTest)  Time elapsed: 1.553 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <403> but was <200>.
+
+	at OrderCreationTest.makeOrderWithoutAuth(OrderCreationTest.java:108)
+
+makeOrder(OrderCreationTest)  Time elapsed: 2.393 s  <<< ERROR!
+java.lang.IllegalStateException: Cannot parse object because no supported Content-Type was specified in response. Content-Type was 'text/html'.
+	at OrderCreationTest.makeOrder(OrderCreationTest.java:68)
+
+makeOrderWithWrongProductCash(OrderCreationTest)  Time elapsed: 1.526 s  <<< FAILURE!
+java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <500> but was <429>.
+
+	at OrderCreationTest.makeOrderWithWrongProductCash(OrderCreationTest.java:96)
+
