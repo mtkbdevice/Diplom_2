@@ -1,3 +1,6 @@
+import api.data.SuccessfulUserCreationData;
+import api.user.UserCreation;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -11,9 +14,6 @@ import static org.hamcrest.Matchers.equalTo;
 public class UserCreationTest {
 
     private Response response;
-    private String userMail;
-    private String userPassword;
-    private String userName;
 
     @Before
     public void setUp(){
@@ -33,105 +33,42 @@ public class UserCreationTest {
     }
 
     @Test
+    @DisplayName("Создание пользователя")
     public void createUser(){
-        userMail = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
-        userPassword = RandomStringUtils.randomAlphabetic(8);
-        userName = RandomStringUtils.randomAlphabetic(8);
-        String registerRequestBody = "{\"email\":\"" + userMail + "\","
-                + "\"password\":\"" + userPassword + "\","
-                + "\"name\":\"" + userName + "\"}";
-
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(registerRequestBody)
-                .when()
-                .post("/api/auth/register");
-        response.then()
-                .statusCode(200);
+        UserCreation userCreation = new UserCreation();
+        response = userCreation.getUserCreationResponse(RandomStringUtils.randomAlphabetic(8) + "@mail.ru", RandomStringUtils.randomAlphabetic(8), RandomStringUtils.randomAlphabetic(8));
+        response.then().statusCode(200);
     }
 
     @Test
+    @DisplayName("Создании двух одинаковых пользователей")
     public void createExistingUser(){
-        userMail = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
-        userPassword = RandomStringUtils.randomAlphabetic(8);
-        userName = RandomStringUtils.randomAlphabetic(8);
-        String registerRequestBody = "{\"email\":\"" + userMail + "\","
-                + "\"password\":\"" + userPassword + "\","
-                + "\"name\":\"" + userName + "\"}";
-
-        given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(registerRequestBody)
-                .when()
-                .post("/api/auth/register");
-
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(registerRequestBody)
-                .when()
-                .post("/api/auth/register");
-        response.then().assertThat().body("success", equalTo(false), "message", equalTo("User already exists"))
-        .and()
-        .statusCode(403);
+        UserCreation userCreation = new UserCreation();
+        response = userCreation.getTwoEqualUsersResponse(RandomStringUtils.randomAlphabetic(8) + "@mail.ru", RandomStringUtils.randomAlphabetic(8), RandomStringUtils.randomAlphabetic(8));
+        response.then().statusCode(403).and().assertThat().body("success", equalTo(false), "message", equalTo("User already exists"));
     }
 
     @Test
+    @DisplayName("Создание пользователя без email")
     public void createUserWithoutMail(){
-        userMail = "";
-        userPassword = RandomStringUtils.randomAlphabetic(8);
-        userName = RandomStringUtils.randomAlphabetic(8);
-        String registerRequestBody = "{\"email\":\"" + userMail + "\","
-                + "\"password\":\"" + userPassword + "\","
-                + "\"name\":\"" + userName + "\"}";
-
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(registerRequestBody)
-                .when()
-                .post("/api/auth/register");
-        response.then().assertThat().body("success", equalTo(false), "message", equalTo("Email, password and name are required fields"))
-                .statusCode(403);
+        UserCreation userCreation = new UserCreation();
+        response = userCreation.getTwoEqualUsersResponse("", RandomStringUtils.randomAlphabetic(8), RandomStringUtils.randomAlphabetic(8));
+        response.then().statusCode(403).and().assertThat().body("success", equalTo(false), "message", equalTo("Email, password and name are required fields"));
     }
 
     @Test
+    @DisplayName("Создание пользователя без пароля")
     public void createUserWithoutPassword(){
-        userMail = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
-        userPassword = "";
-        userName = RandomStringUtils.randomAlphabetic(8);
-        String registerRequestBody = "{\"email\":\"" + userMail + "\","
-                + "\"password\":\"" + userPassword + "\","
-                + "\"name\":\"" + userName + "\"}";
-
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(registerRequestBody)
-                .when()
-                .post("/api/auth/register");
-        response.then().assertThat().body("success", equalTo(false), "message", equalTo("Email, password and name are required fields"))
-                .statusCode(403);
+        UserCreation userCreation = new UserCreation();
+        response = userCreation.getUserCreationResponse(RandomStringUtils.randomAlphabetic(8) + "@mail.ru", "", RandomStringUtils.randomAlphabetic(8));
+        response.then().statusCode(403).and().assertThat().body("success", equalTo(false), "message", equalTo("Email, password and name are required fields"));
     }
 
     @Test
+    @DisplayName("Создание пользователя ,без имени")
     public void createUserWithoutName(){
-        userMail = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
-        userPassword = RandomStringUtils.randomAlphabetic(8);
-        userName = "";
-        String registerRequestBody = "{\"email\":\"" + userMail + "\","
-                + "\"password\":\"" + userPassword + "\","
-                + "\"name\":\"" + userName + "\"}";
-
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body(registerRequestBody)
-                .when()
-                .post("/api/auth/register");
-        response.then().assertThat().body("success", equalTo(false), "message", equalTo("Email, password and name are required fields"))
-                .statusCode(403);
+        UserCreation userCreation = new UserCreation();
+        response = userCreation.getUserCreationResponse(RandomStringUtils.randomAlphabetic(8) + "@mail.ru", RandomStringUtils.randomAlphabetic(8), "");
+        response.then().statusCode(403).and().assertThat().body("success", equalTo(false), "message", equalTo("Email, password and name are required fields"));
     }
 }

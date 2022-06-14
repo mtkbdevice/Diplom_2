@@ -1,3 +1,5 @@
+package api.data;
+
 public class SuccessfulOrderCreationData {
 
     private String success;

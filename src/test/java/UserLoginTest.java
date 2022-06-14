@@ -1,3 +1,6 @@
+import api.data.SuccessfulUserCreationData;
+import api.user.LoginUser;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -45,77 +48,42 @@ public class UserLoginTest {
     }
 
     @Test
-    public void successfullLogin(){
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"email\":\"" + userMail + "\","
-                        + "\"password\":\"" + userPassword + "\"}")
-                .when()
-                .post("/api/auth/login");
-
-        response.then().assertThat().body("success", equalTo(true))
-                .and()
-                .statusCode(200);
+    @DisplayName("Успешный логин пользователя")
+    public void successfulLogin(){
+        LoginUser loginUser = new LoginUser();
+        Response successfulLoginResponse = loginUser.getLoginResponse(userMail, userPassword);
+        successfulLoginResponse.then().statusCode(200).and().assertThat().body("success", equalTo(true));
     }
 
     @Test
+    @DisplayName("Логин с не правильным паролем")
     public void loginWrongPassword(){
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"email\":\"" + userMail + "\","
-                        + "\"password\":\"" + 1234 + "\"}")
-                .when()
-                .post("/api/auth/login");
-
-        response.then().assertThat().body("success", equalTo(false))
-                .and()
-                .statusCode(401);
+        LoginUser loginUser = new LoginUser();
+        Response badLoginResponse = loginUser.getLoginResponse(userMail, "1234");
+        badLoginResponse.then().statusCode(401).and().assertThat().body("success", equalTo(false));
     }
 
     @Test
+    @DisplayName("Логин с не правильным email")
     public void loginWrongEmail(){
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"email\":\"" + "test@mail.ru" + "\","
-                        + "\"password\":\"" + userPassword + "\"}")
-                .when()
-                .post("/api/auth/login");
-
-        response.then().assertThat().body("success", equalTo(false))
-                .and()
-                .statusCode(401);
+        LoginUser loginUser = new LoginUser();
+        Response badLoginResponse = loginUser.getLoginResponse("test@mail.ru", userPassword);
+        badLoginResponse.then().statusCode(401).and().assertThat().body("success", equalTo(false));
     }
 
     @Test
+    @DisplayName("Логин без email")
     public void loginNoEmail(){
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"email\":\"" + "" + "\","
-                        + "\"password\":\"" + userPassword + "\"}")
-                .when()
-                .post("/api/auth/login");
-
-        response.then().assertThat().body("success", equalTo(false))
-                .and()
-                .statusCode(401);
+        LoginUser loginUser = new LoginUser();
+        Response badLoginResponse = loginUser.getLoginResponse("", userPassword);
+        badLoginResponse.then().statusCode(401).and().assertThat().body("success", equalTo(false));
     }
 
     @Test
+    @DisplayName("Логин без пароля")
     public void loginNoPassword(){
-        response = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"email\":\"" + userMail + "\","
-                        + "\"password\":\"" + "" + "\"}")
-                .when()
-                .post("/api/auth/login");
-
-        response.then().assertThat().body("success", equalTo(false))
-                .and()
-                .statusCode(401);
+        LoginUser loginUser = new LoginUser();
+        Response badLoginResponse = loginUser.getLoginResponse(userMail, "");
+        badLoginResponse.then().statusCode(401).and().assertThat().body("success", equalTo(false));
     }
 }

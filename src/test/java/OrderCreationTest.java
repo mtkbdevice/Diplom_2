@@ -1,3 +1,7 @@
+import api.data.SuccessfulOrderCreationData;
+import api.data.SuccessfulUserCreationData;
+import api.user.MakeOrder;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -55,56 +59,34 @@ public class OrderCreationTest {
     }
 
     @Test
+    @DisplayName("Осуществление заказа")
     public void makeOrder(){
-        String accesToken = response.body().as(SuccessfulUserCreationData.class).getAccessToken();
-        Response orderCreationResponse = given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(accesToken)
-                .and()
-                .body("{\"ingredients\": [\"61c0c5a71d1f82001bdaaa6d\"]}")
-                .when()
-                .post("/api/orders");
-
-        orderCreationResponse.then().assertThat().body(orderCreationResponse.body().as(SuccessfulOrderCreationData.class).getName(), equalTo("Флюоресцентный бургер"), orderCreationResponse.body().as(SuccessfulOrderCreationData.class).getOrderNumber(), notNullValue(), orderCreationResponse.body().as(SuccessfulOrderCreationData.class).getSuccess(), true).and().statusCode(200);
+        MakeOrder makeOrder = new MakeOrder();
+        Response orderResponse = makeOrder.getOrderResponse("{\"ingredients\": [\"61c0c5a71d1f82001bdaaa6d\"]}", response.body().as(SuccessfulUserCreationData.class).getAccessToken());
+        orderResponse.then().statusCode(200).and().assertThat().body(orderResponse.body().as(SuccessfulOrderCreationData.class).getName(), equalTo("Флюоресцентный бургер"), orderResponse.body().as(SuccessfulOrderCreationData.class).getOrderNumber(), notNullValue(), orderResponse.body().as(SuccessfulOrderCreationData.class).getSuccess(), true);
     }
 
     @Test
+    @DisplayName("Заказ без ингридиентов")
     public void makeOrderWithoutIngridients(){
-        String accesToken = response.body().as(SuccessfulUserCreationData.class).getAccessToken();
-        Response orderCreationResponse = given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(accesToken)
-                .and()
-                .body("{\"ingredients\": []}")
-                .when()
-                .post("/api/orders");
-
-        orderCreationResponse.then().assertThat().body("success", equalTo(false), "message", equalTo("Ingredient ids must be provided")).and().statusCode(400);
+        MakeOrder makeOrder = new MakeOrder();
+        Response orderResponse = makeOrder.getOrderResponse("{\"ingredients\": []}", response.body().as(SuccessfulUserCreationData.class).getAccessToken());
+        orderResponse.then().statusCode(400).and().assertThat().body("success", equalTo(false), "message", equalTo("Ingredient ids must be provided"));
     }
 
     @Test
+    @DisplayName("Заказ с несоществующим продуктом")
     public void makeOrderWithWrongProductCash(){
-        String accesToken = response.body().as(SuccessfulUserCreationData.class).getAccessToken();
-        Response orderCreationResponse = given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(accesToken)
-                .and()
-                .body("{\"ingredients\": [\"61c0c5a71d1f82001bd1zz6d\"]}")
-                .when()
-                .post("/api/orders");
-
-        orderCreationResponse.then().statusCode(500);
+        MakeOrder makeOrder = new MakeOrder();
+        Response orderResponse = makeOrder.getOrderResponse("{\"ingredients\": [\"61c0c5a71d1f82001bd1zz6d\"]}", response.body().as(SuccessfulUserCreationData.class).getAccessToken());
+        orderResponse.then().statusCode(500);
     }
 
     @Test
+    @DisplayName("Заказ без аутификации")
     public void makeOrderWithoutAuth(){
-        Response orderCreationResponse = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"ingredients\": [\"61c0c5a71d1f82001bdaaa6d\"]}")
-                .when()
-                .post("/api/orders");
-
+        MakeOrder makeOrder = new MakeOrder();
+        Response orderCreationResponse = makeOrder.getOrderResponse("{\"ingredients\": [\"61c0c5a71d1f82001bdaaa6d\"]}", "");
         orderCreationResponse.then().statusCode(403);
     }
 }

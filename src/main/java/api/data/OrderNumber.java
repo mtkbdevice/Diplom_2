@@ -1,3 +1,5 @@
+package api.data;
+
 public class OrderNumber {
 
     private int number;

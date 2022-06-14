@@ -1,3 +1,6 @@
+import api.data.SuccessfulUserCreationData;
+import api.user.ReceivingOrdersFromUser;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -53,25 +56,18 @@ public class ReceivingOrdersFromSpecificUserTest {
     }
 
     @Test
+    @DisplayName("Получение заказов пользователя")
     public void getOrders(){
-        Response responseWithAuth = given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(response.body().as(SuccessfulUserCreationData.class).getAccessToken())
-                .and()
-                .when()
-                .get("/api/orders");
-
-        responseWithAuth.then().statusCode(200);
+        ReceivingOrdersFromUser receivingOrdersFromUser = new ReceivingOrdersFromUser();
+        Response responseOrderInfo = receivingOrdersFromUser.getReceivingOrderResponse(response.body().as(SuccessfulUserCreationData.class).getAccessToken());
+        responseOrderInfo.then().statusCode(200);
     }
 
     @Test
+    @DisplayName("Получение заказов пользователя без аутинтификации")
     public void getOrdersWithoutAuth(){
-        Response responseWithoutAuth = given()
-                .header("Content-type", "application/json")
-                .and()
-                .when()
-                .get("/api/orders");
-
-        responseWithoutAuth.then().statusCode(401);
+        ReceivingOrdersFromUser receivingOrdersFromUser = new ReceivingOrdersFromUser();
+        Response responseOrderInfo = receivingOrdersFromUser.getReceivingOrderResponse("");
+        responseOrderInfo.then().statusCode(401);
     }
 }

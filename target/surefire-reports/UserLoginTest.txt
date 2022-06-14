@@ -1,13 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: UserLoginTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 4.003 s <<< FAILURE! - in UserLoginTest
-successfullLogin(UserLoginTest)  Time elapsed: 0.695 s  <<< FAILURE!
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 6.225 s <<< FAILURE! - in UserLoginTest
+successfulLogin(UserLoginTest)  Time elapsed: 1.217 s  <<< FAILURE!
 java.lang.AssertionError: 
 1 expectation failed.
-JSON path success doesn't match.
-Expected: <true>
-  Actual: <false>
+Expected status code <200> but was <429>.
 
-	at UserLoginTest.successfullLogin(UserLoginTest.java:57)
+	at UserLoginTest.successfulLogin(UserLoginTest.java:55)
 

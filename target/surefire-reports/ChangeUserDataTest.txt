@@ -1,17 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: ChangeUserDataTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 11.965 s <<< FAILURE! - in ChangeUserDataTest
-changeUserDataWithExistedEmail(ChangeUserDataTest)  Time elapsed: 7.085 s  <<< FAILURE!
+Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 9.891 s <<< FAILURE! - in ChangeUserDataTest
+changeUserDataWithExistedEmail(ChangeUserDataTest)  Time elapsed: 5.165 s  <<< FAILURE!
 java.lang.AssertionError: 
-2 expectations failed.
-JSON path success doesn't match.
-Expected: <false>
-  Actual: <true>
+1 expectation failed.
+Expected status code <403> but was <200>.
 
-JSON path message doesn't match.
-Expected: User with such email already exists
-  Actual: null
-
-	at ChangeUserDataTest.changeUserDataWithExistedEmail(ChangeUserDataTest.java:102)
+	at ChangeUserDataTest.changeUserDataWithExistedEmail(ChangeUserDataTest.java:80)
 

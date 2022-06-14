@@ -1,3 +1,6 @@
+import api.data.SuccessfulUserCreationData;
+import api.user.ChangeUserData;
+import io.qameta.allure.junit4.DisplayName;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.apache.commons.lang3.RandomStringUtils;
@@ -54,52 +57,27 @@ public class ChangeUserDataTest {
     }
 
     @Test
+    @DisplayName("Успешное изменение данных пользователя")
     public void changeUserData(){
-        Response changeResponse;
-        String newUserMail = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
-        String newUserName = RandomStringUtils.randomAlphabetic(8);
-        String accesToken = response.body().as(SuccessfulUserCreationData.class).getAccessToken();
-        changeResponse = given()
-                .header("Content-type", "application/json")
-                .auth().oauth2(accesToken)
-                .and()
-                .body("{\"email\":\"" + newUserMail + "\","
-                        + "\"name\":\"" + newUserName + "\"}")
-                .when()
-                .patch("/api/auth/user");
-        changeResponse.then().statusCode(200);
+        ChangeUserData changeUserData = new ChangeUserData();
+        Response сhangeUserDataResponse = changeUserData.getChangeDataResponse(RandomStringUtils.randomAlphabetic(8) + "@mail.ru",RandomStringUtils.randomAlphabetic(8), response.body().as(SuccessfulUserCreationData.class).getAccessToken());
+        сhangeUserDataResponse.then().statusCode(200);
     }
 
     @Test
+    @DisplayName("Изменение данных пользователя без авторизации")
     public void changeUserDataWithoutAuth(){
-        Response changeResponse;
-        String newUserMail = RandomStringUtils.randomAlphabetic(8) + "@mail.ru";
-        String newUserName = RandomStringUtils.randomAlphabetic(8);
-        changeResponse = given()
-                .header("Content-type", "application/json")
-                .and()
-                .body("{\"email\":\"" + newUserMail + "\","
-                        + "\"name\":\"" + newUserName + "\"}")
-                .when()
-                .patch("/api/auth/user");
-        changeResponse.then().assertThat().body("success", equalTo(false), "message", equalTo("You should be authorised")).and().statusCode(401);
+        ChangeUserData changeUserData = new ChangeUserData();
+        Response сhangeUserDataResponse = changeUserData.getChangeDataResponse(RandomStringUtils.randomAlphabetic(8) + "@mail.ru",RandomStringUtils.randomAlphabetic(8), "");
+        сhangeUserDataResponse.then().statusCode(401).and().assertThat().body("success", equalTo(false), "message", equalTo("You should be authorised"));
     }
 
     @Test
+    @DisplayName("Изменение почты на уже существующую почту")
     public void changeUserDataWithExistedEmail(){
-        Response changeResponse;
-        String newUserName = RandomStringUtils.randomAlphabetic(8);
-        String accesToken = response.body().as(SuccessfulUserCreationData.class).getAccessToken();
-
-        changeResponse = given()
-                .header("Content-type", "application/json")
-                .and()
-                .auth().oauth2(accesToken)
-                .body("{\"email\":\"" + userMail + "\","
-                        + "\"name\":\"" + newUserName + "\"}")
-                .when()
-                .patch("/api/auth/user");
-        changeResponse.then().assertThat().body("success", equalTo(false), "message", equalTo("User with such email already exists")).and().statusCode(403);
+        ChangeUserData changeUserData = new ChangeUserData();
+        Response сhangeUserDataResponse = changeUserData.getChangeDataResponse(userMail,RandomStringUtils.randomAlphabetic(8), response.body().as(SuccessfulUserCreationData.class).getAccessToken());
+        сhangeUserDataResponse.then().statusCode(403).and().assertThat().body("success", equalTo(false), "message", equalTo("data.User with such email already exists"));
     }
 
 }

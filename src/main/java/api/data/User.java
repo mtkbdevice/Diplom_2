@@ -1,3 +1,5 @@
+package api.data;
+
 public class User {
 
     private String email;
