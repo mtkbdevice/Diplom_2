@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="OrderCreationTest" time="7.257" tests="4" errors="1" skipped="0" failures="1">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1251"/>
+    <property name="java.class.path" value="C:\Diplom\Diplom_2\target\test-classes;C:\Diplom\Diplom_2\target\classes;C:\Users\e.sarkisyan\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\e.sarkisyan\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\httpurlconnection-executor\0.8\httpurlconnection-executor-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\http-client-essentials\0.8\http-client-essentials-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\http-client-headers\0.8\http-client-headers-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\iterators\1.3\iterators-1.3.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\http-client-types\0.8\http-client-types-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\rest-assured\5.0.0\rest-assured-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\e.sarkisyan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\e.sarkisyan\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\e.sarkisyan\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\json-path\5.0.0\json-path-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\rest-assured-common\5.0.0\rest-assured-common-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\xml-path\5.0.0\xml-path-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\e.sarkisyan\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-junit4\2.9.0\allure-junit4-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-java-commons\2.9.0\allure-java-commons-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-model\2.9.0\allure-model-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.7\jackson-databind-2.9.7.jar;C:\Users\e.sarkisyan\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.7\jackson-core-2.9.7.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\tika\tika-core\1.19.1\tika-core-1.19.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\aspectj\aspectjrt\1.9.1\aspectjrt-1.9.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\jooq\joor-java-8\0.9.9\joor-java-8-0.9.9.jar;C:\Users\e.sarkisyan\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-rest-assured\2.9.0\allure-rest-assured-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-attachments\2.9.0\allure-attachments-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\freemarker\freemarker\2.3.28\freemarker-2.3.28.jar;"/>
+    <property name="java.vm.vendor" value="Amazon.com Inc."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/"/>
+    <property name="user.timezone" value="Europe/Moscow"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="RU"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.14_9\bin"/>
+    <property name="sun.java.command" value="C:\Users\E92AC~1.SAR\AppData\Local\Temp\surefire13462310863410854389\surefirebooter16745739035432201011.jar C:\Users\e.sarkisyan\AppData\Local\Temp\surefire13462310863410854389 2022-06-14T23-42-55_259-jvmRun1 surefire18238960456584154184tmp surefire_04590384560404672126tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Diplom\Diplom_2\target\test-classes;C:\Diplom\Diplom_2\target\classes;C:\Users\e.sarkisyan\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\e.sarkisyan\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\httpurlconnection-executor\0.8\httpurlconnection-executor-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\http-client-essentials\0.8\http-client-essentials-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\http-client-headers\0.8\http-client-headers-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\iterators\1.3\iterators-1.3.jar;C:\Users\e.sarkisyan\.m2\repository\org\dmfs\http-client-types\0.8\http-client-types-0.8.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\rest-assured\5.0.0\rest-assured-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\groovy\groovy\4.0.1\groovy-4.0.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\groovy\groovy-xml\4.0.1\groovy-xml-4.0.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\httpcomponents\httpclient\4.5.13\httpclient-4.5.13.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\httpcomponents\httpcore\4.4.13\httpcore-4.4.13.jar;C:\Users\e.sarkisyan\.m2\repository\commons-logging\commons-logging\1.2\commons-logging-1.2.jar;C:\Users\e.sarkisyan\.m2\repository\commons-codec\commons-codec\1.11\commons-codec-1.11.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\httpcomponents\httpmime\4.5.13\httpmime-4.5.13.jar;C:\Users\e.sarkisyan\.m2\repository\org\hamcrest\hamcrest\2.1\hamcrest-2.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\ccil\cowan\tagsoup\tagsoup\1.2.1\tagsoup-1.2.1.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\json-path\5.0.0\json-path-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\groovy\groovy-json\4.0.1\groovy-json-4.0.1.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\rest-assured-common\5.0.0\rest-assured-common-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\rest-assured\xml-path\5.0.0\xml-path-5.0.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\commons\commons-lang3\3.11\commons-lang3-3.11.jar;C:\Users\e.sarkisyan\.m2\repository\com\google\code\gson\gson\2.8.9\gson-2.8.9.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-junit4\2.9.0\allure-junit4-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-java-commons\2.9.0\allure-java-commons-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-model\2.9.0\allure-model-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.9.7\jackson-databind-2.9.7.jar;C:\Users\e.sarkisyan\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.9.0\jackson-annotations-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.9.7\jackson-core-2.9.7.jar;C:\Users\e.sarkisyan\.m2\repository\org\apache\tika\tika-core\1.19.1\tika-core-1.19.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\aspectj\aspectjrt\1.9.1\aspectjrt-1.9.1.jar;C:\Users\e.sarkisyan\.m2\repository\org\jooq\joor-java-8\0.9.9\joor-java-8-0.9.9.jar;C:\Users\e.sarkisyan\.m2\repository\org\slf4j\slf4j-api\1.7.25\slf4j-api-1.7.25.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-rest-assured\2.9.0\allure-rest-assured-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\io\qameta\allure\allure-attachments\2.9.0\allure-attachments-2.9.0.jar;C:\Users\e.sarkisyan\.m2\repository\org\freemarker\freemarker\2.3.28\freemarker-2.3.28.jar;"/>
+    <property name="allure.results.directory" value="C:\Diplom\Diplom_2\target/allure-results"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\e.sarkisyan"/>
+    <property name="user.language" value="ru"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2022-01-18"/>
+    <property name="java.home" value="C:\Program Files\Amazon Corretto\jdk11.0.14_9"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Diplom\Diplom_2"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\E92AC~1.SAR\AppData\Local\Temp\surefire13462310863410854389\surefirebooter16745739035432201011.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.14+9-LTS"/>
+    <property name="user.name" value="e.sarkisyan"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1251"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Corretto-11.0.14.9.1"/>
+    <property name="localRepository" value="C:\Users\e.sarkisyan\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-11/issues/"/>
+    <property name="java.io.tmpdir" value="C:\Users\E92AC~1.SAR\AppData\Local\Temp\"/>
+    <property name="java.version" value="11.0.14"/>
+    <property name="user.dir" value="C:\Diplom\Diplom_2"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Amazon Corretto\jdk11.0.14_9\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files\Amazon Corretto\jdk11.0.14_9\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Aladdin\eToken\PKIClient\x32;C:\Program Files\Aladdin\eToken\PKIClient\x64;C:\Program Files\Git\cmd;C:\Users\e.sarkisyan\AppData\Local\Android\Sdk\platform-tools;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\dotnet\;C:\apache-maven-3.8.4-bin\apache-maven-3.8.4\bin;C:\WebDriver\bin;C:\allure-commandline-2.9.0\allure-2.9.0\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\e.sarkisyan\AppData\Local\Microsoft\WindowsApps;C:\Users\e.sarkisyan\AppData\Local\GitHubDesktop\bin;C:\Users\e.sarkisyan\AppData\Local\GitHubDesktop\app-2.9.2\resources\app\git\cmd;C:\Users\e.sarkisyan\.dotnet\tools;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="Amazon.com Inc."/>
+    <property name="java.vm.version" value="11.0.14+9-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="makeOrderWithoutAuth" classname="OrderCreationTest" time="1.642">
+    <failure message="1 expectation failed.&#10;Expected status code &lt;403&gt; but was &lt;200&gt;.&#10;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: 
+1 expectation failed.
+Expected status code <403> but was <200>.
+
+	at OrderCreationTest.makeOrderWithoutAuth(OrderCreationTest.java:90)
+]]></failure>
+  </testcase>
+  <testcase name="makeOrderWithoutIngridients" classname="OrderCreationTest" time="1.808"/>
+  <testcase name="makeOrder" classname="OrderCreationTest" time="2.107">
+    <error message="Unrecognized field &quot;order&quot; (class api.data.SuccessfulOrderCreationData), not marked as ignorable (3 known properties: &quot;success&quot;, &quot;orderNumber&quot;, &quot;name&quot;])&#10; at [Source: (String)&quot;{&quot;success&quot;:true,&quot;name&quot;:&quot;Флюоресцентный бургер&quot;,&quot;order&quot;:{&quot;ingredients&quot;:[{&quot;_id&quot;:&quot;61c0c5a71d1f82001bdaaa6d&quot;,&quot;name&quot;:&quot;Флюоресцентная булка R2-D3&quot;,&quot;type&quot;:&quot;bun&quot;,&quot;proteins&quot;:44,&quot;fat&quot;:26,&quot;carbohydrates&quot;:85,&quot;calories&quot;:643,&quot;price&quot;:988,&quot;image&quot;:&quot;https://code.s3.yandex.net/react/code/bun-01.png&quot;,&quot;image_mobile&quot;:&quot;https://code.s3.yandex.net/react/code/bun-01-mobile.png&quot;,&quot;image_large&quot;:&quot;https://code.s3.yandex.net/react/code/bun-01-large.png&quot;,&quot;__v&quot;:0}],&quot;_id&quot;:&quot;62a8f2da93ebc2001b491ffe&quot;,&quot;owner&quot;:{&quot;name&quot;:&quot;JXelOeTy&quot;,&quot;ema&quot;[truncated 255 chars]; line: 1, column: 57] (through reference chain: api.data.SuccessfulOrderCreationData[&quot;order&quot;])" type="com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException">com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException: 
+Unrecognized field "order" (class api.data.SuccessfulOrderCreationData), not marked as ignorable (3 known properties: "success", "orderNumber", "name"])
+ at [Source: (String)"{"success":true,"name":"Флюоресцентный бургер","order":{"ingredients":[{"_id":"61c0c5a71d1f82001bdaaa6d","name":"Флюоресцентная булка R2-D3","type":"bun","proteins":44,"fat":26,"carbohydrates":85,"calories":643,"price":988,"image":"https://code.s3.yandex.net/react/code/bun-01.png","image_mobile":"https://code.s3.yandex.net/react/code/bun-01-mobile.png","image_large":"https://code.s3.yandex.net/react/code/bun-01-large.png","__v":0}],"_id":"62a8f2da93ebc2001b491ffe","owner":{"name":"JXelOeTy","ema"[truncated 255 chars]; line: 1, column: 57] (through reference chain: api.data.SuccessfulOrderCreationData["order"])
+	at OrderCreationTest.makeOrder(OrderCreationTest.java:66)
+</error>
+  </testcase>
+  <testcase name="makeOrderWithWrongProductCash" classname="OrderCreationTest" time="1.69"/>
+</testsuite>
